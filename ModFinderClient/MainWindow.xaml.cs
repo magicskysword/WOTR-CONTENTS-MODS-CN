@@ -1,6 +1,7 @@
 ﻿using ModFinder.Mod;
 using ModFinder.UI;
 using ModFinder.Util;
+using ModFinder.Localization;
 using NexusModsNET;
 using System;
 using System.Buffers;
@@ -51,6 +52,11 @@ namespace ModFinder
         InitializeComponent();
 
         Window = this;
+
+        // Initialize localization with saved language preference
+        var savedLanguage = Main.Settings.Language ?? "en-US";
+        Logger.Log.Info($"Initializing localization with language: {savedLanguage}");
+        LocalizationManager.Instance.SetLanguage(savedLanguage);
 
         CheckForUpdate();
 
@@ -928,6 +934,40 @@ namespace ModFinder
       catch (Exception ex)
       {
         Logger.Log.Error("Failed to clear cache.", ex);
+      }
+    }
+
+    /// <summary>
+    /// Switch to English language
+    /// </summary>
+    private void SetLanguageEnglish(object sender, RoutedEventArgs e)
+    {
+      try
+      {
+        LocalizationManager.Instance.SetLanguage("en-US");
+        Main.Settings.Language = "en-US";
+        Main.Settings.Save();
+      }
+      catch (Exception ex)
+      {
+        Logger.Log.Error("Failed to set language to English.", ex);
+      }
+    }
+
+    /// <summary>
+    /// Switch to Chinese language
+    /// </summary>
+    private void SetLanguageChinese(object sender, RoutedEventArgs e)
+    {
+      try
+      {
+        LocalizationManager.Instance.SetLanguage("zh-CN");
+        Main.Settings.Language = "zh-CN";
+        Main.Settings.Save();
+      }
+      catch (Exception ex)
+      {
+        Logger.Log.Error("Failed to set language to Chinese.", ex);
       }
     }
 

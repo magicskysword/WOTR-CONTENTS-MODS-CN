@@ -1,5 +1,7 @@
 # ModFinder
 
+[中文说明](README_CN.md)
+
 ### [![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/Pathfinder-WOTR-Modding-Community/ModFinder/releases/latest/download/ModFinder.zip)  Latest Release
 
 

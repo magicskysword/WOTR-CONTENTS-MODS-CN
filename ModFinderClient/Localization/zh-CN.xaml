@@ -1,0 +1,58 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Main Interface -->
+    <system:String x:Key="AppTitle">模拓者：正义之怒</system:String>
+    <system:String x:Key="Show">显示：</system:String>
+    <system:String x:Key="ShowAll">全部</system:String>
+    <system:String x:Key="ShowInstalled">已安装</system:String>
+    <system:String x:Key="DragInstallText">拖拽压缩包到此处安装</system:String>
+    
+    <!-- Context Menu -->
+    <system:String x:Key="ClearCache">清除缓存</system:String>
+    <system:String x:Key="LinkNexusPremium">链接 Nexus 高级账户</system:String>
+    <system:String x:Key="Language">语言</system:String>
+    <system:String x:Key="English">English</system:String>
+    <system:String x:Key="Chinese">中文</system:String>
+    
+    <!-- Tooltips -->
+    <system:String x:Key="RescanModsTooltip">重新扫描已安装的模组</system:String>
+    <system:String x:Key="UninstallTooltip">卸载</system:String>
+    <system:String x:Key="RollbackTooltip">回滚到上一版本</system:String>
+    <system:String x:Key="HomepageTooltip">主页</system:String>
+    <system:String x:Key="DescriptionTooltip">描述</system:String>
+    <system:String x:Key="ChangelogTooltip">更新日志</system:String>
+    
+    <!-- Mod Details -->
+    <system:String x:Key="LatestVersion">最新版本：</system:String>
+    <system:String x:Key="LastUpdated">最后更新：</system:String>
+    <system:String x:Key="Source">来源：</system:String>
+    <system:String x:Key="ID">ID：</system:String>
+    <system:String x:Key="Installed">已安装：</system:String>
+    <system:String x:Key="LastChecked">最后检查：</system:String>
+    <system:String x:Key="AuthorBy">作者：{0}</system:String>
+    
+    <!-- Column Headers -->
+    <system:String x:Key="EnabledHeader">  启用</system:String>
+    <system:String x:Key="NameHeader">名称</system:String>
+    <system:String x:Key="AuthorHeader">作者</system:String>
+    <system:String x:Key="StatusHeader">状态</system:String>
+    
+    <!-- Context Menu Items -->
+    <system:String x:Key="ShowDescription">显示描述</system:String>
+    <system:String x:Key="ShowChangelog">显示更新日志</system:String>
+    <system:String x:Key="OpenHomepage">打开主页</system:String>
+    <system:String x:Key="Uninstall">卸载</system:String>
+    <system:String x:Key="Rollback">回滚</system:String>
+    <system:String x:Key="OpenFolder">打开文件夹</system:String>
+    
+    <!-- Button Text -->
+    <system:String x:Key="Installing">安装中...</system:String>
+    <system:String x:Key="Uninstalling">卸载中...</system:String>
+    <system:String x:Key="Update">更新</system:String>
+    <system:String x:Key="Install">安装</system:String>
+    <system:String x:Key="Download">下载</system:String>
+    <system:String x:Key="UpToDate">已是最新</system:String>
+    
+</ResourceDictionary>

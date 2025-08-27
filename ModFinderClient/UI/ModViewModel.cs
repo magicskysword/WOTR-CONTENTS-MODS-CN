@@ -1,5 +1,6 @@
 ﻿using ModFinder.Mod;
 using ModFinder.Util;
+using ModFinder.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,18 @@ namespace ModFinder.UI
     public ModViewModel(ModManifest manifest)
     {
       Refresh(manifest, refreshUI: false);
+      
+      // Subscribe to language changes to update UI text
+      LocalizationManager.Instance.PropertyChanged += OnLanguageChanged;
+    }
+
+    private void OnLanguageChanged(object sender, PropertyChangedEventArgs e)
+    {
+      if (e.PropertyName == nameof(LocalizationManager.CurrentLanguage))
+      {
+        // Update button text and other UI elements when language changes
+        Changed(nameof(ButtonText));
+      }
     }
 
     public void Refresh(ModManifest manifest, bool refreshUI = true)
@@ -330,15 +343,15 @@ namespace ModFinder.UI
     private string GetButtonText()
     {
       if (Status.State == InstallState.Installing)
-        return "Installing...";
+        return LocalizationManager.Instance.GetString("Installing", "Installing...");
       if (Status.State == InstallState.Uninstalling)
-        return "Uninstalling...";
+        return LocalizationManager.Instance.GetString("Uninstalling", "Uninstalling...");
       if (IsInstalled && InstalledVersion < Latest.Version)
-        return "Update";
+        return LocalizationManager.Instance.GetString("Update", "Update");
       if (CanInstall)
-        return "Install";
+        return LocalizationManager.Instance.GetString("Install", "Install");
       if (CanDownload)
-        return "Download";
+        return LocalizationManager.Instance.GetString("Download", "Download");
       if (MissingRequirements.Any())
       {
         var nextMod = GetNextAvailableRequirement();
@@ -346,14 +359,16 @@ namespace ModFinder.UI
         {
           if (nextMod.CanInstall)
           {
-            var text = $"Install {nextMod.Name}";
+            var installText = LocalizationManager.Instance.GetString("Install", "Install");
+            var text = $"{installText} {nextMod.Name}";
             if (text.Length > 20)
               text = $"{text[..20]}...";
             return text;
           }
           if (nextMod.CanDownload)
           {
-            var text = $"Download {nextMod.Name}";
+            var downloadText = LocalizationManager.Instance.GetString("Download", "Download");
+            var text = $"{downloadText} {nextMod.Name}";
             if (text.Length > 20)
               text = $"{text[..20]}...";
             return text;
@@ -362,7 +377,7 @@ namespace ModFinder.UI
       }
       if (Latest.Version == default)
         return "-";
-      return "Up to date";
+      return LocalizationManager.Instance.GetString("UpToDate", "Up to date");
     }
 
     #region Notify
